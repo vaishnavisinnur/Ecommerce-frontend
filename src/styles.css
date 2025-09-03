@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+/* Remove default button styles */
+button {
+  border: none;
+  outline: none;
+}
+
+/* Remove default input styles */
+input, select {
+  outline: none;
+}

@@ -1,0 +1,162 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <!-- Animated Background Elements -->
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+
+    <div class="auth-content">
+      <!-- Left Side - Visuals -->
+      <div class="visual-side">
+        <div class="logo-container">
+          <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+            </svg>
+            <span>CartSphere</span>
+          </div>
+        </div>
+
+        <div class="illustration">
+          <div class="illustration-container">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+            <div class="shopping-bag">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clip-rule="evenodd" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-text">
+          <h2>Join CartSphere</h2>
+          <p>Create your account and start shopping</p>
+        </div>
+      </div>
+
+      <!-- Right Side - Form -->
+      <div class="form-side">
+        <div class="form-container">
+          <div class="form-header">
+            <h2>Create Account</h2>
+            <p>Fill in your details to get started</p>
+          </div>
+
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="auth-form">
+            <div class="input-group">
+              <div class="input-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
+                </svg>
+                <input 
+                  type="text" 
+                  id="name" 
+                  formControlName="name"
+                  placeholder=" "
+                  [class.error]="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+                <label for="name">Full Name</label>
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('name')?.errors?.['required'] && signupForm.get('name')?.touched">
+                Name is required
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('name')?.errors?.['minlength'] && signupForm.get('name')?.touched">
+                Name must be at least 2 characters
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="input-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+                  <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+                </svg>
+                <input 
+                  type="email" 
+                  id="email" 
+                  formControlName="email"
+                  placeholder=" "
+                  [class.error]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+                <label for="email">Email Address</label>
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('email')?.errors?.['required'] && signupForm.get('email')?.touched">
+                Email is required
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('email')?.errors?.['email'] && signupForm.get('email')?.touched">
+                Please enter a valid email
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="input-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                </svg>
+                <input 
+                  type="password" 
+                  id="password" 
+                  formControlName="password"
+                  placeholder=" "
+                  [class.error]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                <label for="password">Password</label>
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('password')?.errors?.['required'] && signupForm.get('password')?.touched">
+                Password is required
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('password')?.errors?.['minlength'] && signupForm.get('password')?.touched">
+                Password must be at least 6 characters
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="input-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd" />
+                </svg>
+                <input 
+                  type="password" 
+                  id="confirmPassword" 
+                  formControlName="confirmPassword"
+                  placeholder=" "
+                  [class.error]="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">
+                <label for="confirmPassword">Confirm Password</label>
+              </div>
+              <div class="error-message" *ngIf="signupForm.get('confirmPassword')?.errors?.['required'] && signupForm.get('confirmPassword')?.touched">
+                Please confirm your password
+              </div>
+              <div class="error-message" *ngIf="signupForm.errors?.['passwordMismatch'] && signupForm.get('confirmPassword')?.touched">
+                Passwords do not match
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              class="auth-button"
+              [disabled]="signupForm.invalid || isLoading">
+              <span *ngIf="!isLoading">Create Account</span>
+              <span *ngIf="isLoading" class="button-loading">
+                <span class="spinner"></span>
+                Creating account...
+              </span>
+            </button>
+
+            <div *ngIf="errorMessage" class="error-message main-error">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+              </svg>
+              {{ errorMessage }}
+            </div>
+          </form>
+
+          <div class="auth-footer">
+            <p>Already have an account? <a routerLink="/login" class="auth-link">Sign In</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
